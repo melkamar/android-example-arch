@@ -9,7 +9,7 @@ public class UserViewModel extends ViewModel {
     private LiveData<User> user;
     private UserRepo userRepo;
 
-//    @Inject
+    @Inject
     public UserViewModel(UserRepo userRepo) {
         this.userRepo = userRepo;
     }
@@ -21,5 +21,9 @@ public class UserViewModel extends ViewModel {
 
     public LiveData<User> getUser() {
         return user;
+    }
+
+    public void saveUser(User user){
+        userRepo.saveUser(user);
     }
 }

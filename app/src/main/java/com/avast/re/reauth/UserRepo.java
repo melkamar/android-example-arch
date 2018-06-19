@@ -6,24 +6,41 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.Random;
 import java.util.concurrent.Executor;
+import java.util.logging.Logger;
 
 @Singleton
 public class UserRepo {
     private final UserDao userDao;
     private final Executor executor;
 
-//    @Inject
+    @Inject
     public UserRepo(UserDao userDao, Executor executor) {
         this.userDao = userDao;
         this.executor = executor;
     }
 
     public LiveData<User> getUser(int id) {
-        refreshUser();
-        return userDao.get(id);
+        Logger.getLogger(this.getClass().getName()).info("getUser()");
+        refreshUser(id);
+        LiveData<User> res = userDao.get(id);
+        return res;
     }
 
-    private void refreshUser() {
-        executor.execute(() -> userDao.save(new User(new Random().nextInt(100000))));
+    public void saveUser(User user) {
+        executor.execute(() -> {
+            Logger.getLogger(this.getClass().getName()).info("Saving user " + user);
+            userDao.save(user);
+        });
+    }
+
+    private void refreshUser(int id) {
+        executor.execute(() -> {
+            if (!userDao.exists(id)) {
+                User user = new User(new Random().nextInt(100000));
+                user.setId(id);
+                Logger.getLogger(this.getClass().getName()).info("Saving user EXECUTOR: " + user);
+                userDao.save(user);
+            }
+        });
     }
 }

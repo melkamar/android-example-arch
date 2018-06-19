@@ -13,4 +13,7 @@ public interface UserDao {
 
     @Query("SELECT * FROM user WHERE id = :userId")
     LiveData<User> get(int userId);
+
+    @Query("SELECT * FROM user WHERE id = :userId")
+    boolean exists(int userId);
 }

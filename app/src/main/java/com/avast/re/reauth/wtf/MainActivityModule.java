@@ -18,7 +18,6 @@ import javax.inject.Singleton;
 
 @Module
 public abstract class MainActivityModule {
-//    @Util.PerFragment
     @ContributesAndroidInjector
     abstract MainActivityFragment mainActivityFragmentInjector();
 

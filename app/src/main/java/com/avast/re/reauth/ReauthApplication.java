@@ -3,7 +3,9 @@ package com.avast.re.reauth;
 import android.app.Activity;
 import android.app.Application;
 import android.support.v4.app.Fragment;
+
 import com.avast.re.reauth.wtf.DaggerAppComponent;
+import com.avast.re.reauth.wtf.RoomModule;
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
@@ -20,6 +22,10 @@ public class ReauthApplication extends Application implements HasSupportFragment
     @Inject
     DispatchingAndroidInjector<Fragment> mFragmentInjector;
 
+    @Override
+    public AndroidInjector<Activity> activityInjector() {
+        return mActivityInjector;
+    }
 
     @Override
     public AndroidInjector<Fragment> supportFragmentInjector() {
@@ -29,21 +35,8 @@ public class ReauthApplication extends Application implements HasSupportFragment
     @Override
     public void onCreate() {
         super.onCreate();
-        DaggerAppComponent.create().inject(this);
+        DaggerAppComponent.builder()
+                .roomModule(new RoomModule(this))
+                .build().inject(this);
     }
-
-    @Override
-    public AndroidInjector<Activity> activityInjector() {
-        return mActivityInjector;
-    }
-
-//    @Override
-//    public AndroidInjector<Activity> activityInjector() {
-//        return mActivityInjector;
-//    }
-//
-//    @Override
-//    public AndroidInjector<Fragment> supportFragmentInjector() {
-//        return mFragmentInjector;
-//    }
 }

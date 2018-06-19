@@ -8,4 +8,5 @@ import android.arch.persistence.room.RoomDatabase;
         version = 1
 )
 public abstract class ReauthDB extends RoomDatabase {
+    public abstract UserDao getUserDao();
 }
