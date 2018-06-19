@@ -1,4 +1,4 @@
-package com.avast.re.reauth.wtf;
+package com.avast.re.reauth.di;
 
 import com.avast.re.reauth.ReauthApplication;
 import dagger.Component;

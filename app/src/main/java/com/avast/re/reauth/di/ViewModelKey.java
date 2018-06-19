@@ -1,4 +1,4 @@
-package com.avast.re.reauth.wtf;
+package com.avast.re.reauth.di;
 
 import android.arch.lifecycle.ViewModel;
 import dagger.MapKey;

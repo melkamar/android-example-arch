@@ -1,7 +1,9 @@
-package com.avast.re.reauth;
+package com.avast.re.reauth.ui;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModel;
+import com.avast.re.reauth.data.UserRepo;
+import com.avast.re.reauth.model.User;
 
 import javax.inject.Inject;
 

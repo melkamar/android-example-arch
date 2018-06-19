@@ -1,16 +1,14 @@
-package com.avast.re.reauth.wtf;
+package com.avast.re.reauth.di;
 
 import android.arch.persistence.room.Room;
 import com.avast.re.reauth.ReauthApplication;
-import com.avast.re.reauth.ReauthDB;
-import com.avast.re.reauth.UserDao;
-import com.avast.re.reauth.UserRepo;
+import com.avast.re.reauth.data.ReauthDB;
+import com.avast.re.reauth.data.UserDao;
+import com.avast.re.reauth.data.UserRepo;
 import dagger.Module;
 import dagger.Provides;
 
 import javax.inject.Singleton;
-import java.nio.channels.ReadableByteChannel;
-import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 @Module

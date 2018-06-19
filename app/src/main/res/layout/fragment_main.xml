@@ -3,7 +3,7 @@
     <data>
         <variable
                 name="viewmodel"
-                type="com.avast.re.reauth.UserViewModel"/>
+                type="com.avast.re.reauth.ui.UserViewModel"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -12,7 +12,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:showIn="@layout/activity_main"
-            tools:context=".MainActivityFragment">
+            tools:context=".ui.MainActivityFragment">
 
         <TextView
                 android:layout_width="wrap_content"

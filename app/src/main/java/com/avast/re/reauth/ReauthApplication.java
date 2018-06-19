@@ -4,12 +4,11 @@ import android.app.Activity;
 import android.app.Application;
 import android.support.v4.app.Fragment;
 
-import com.avast.re.reauth.wtf.DaggerAppComponent;
-import com.avast.re.reauth.wtf.RoomModule;
+import com.avast.re.reauth.di.DaggerAppComponent;
+import com.avast.re.reauth.di.RoomModule;
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
-import dagger.android.support.DaggerApplication;
 import dagger.android.support.HasSupportFragmentInjector;
 
 import javax.inject.Inject;

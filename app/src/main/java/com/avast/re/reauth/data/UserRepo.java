@@ -1,6 +1,7 @@
-package com.avast.re.reauth;
+package com.avast.re.reauth.data;
 
 import android.arch.lifecycle.LiveData;
+import com.avast.re.reauth.model.User;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
